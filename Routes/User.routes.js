@@ -41,7 +41,7 @@ UserRouter.post('/post', async (req,res) => {
     } catch (error) {
         console.error('Unable to Add New user:', error);
         if (error.code === 11000) {
-            return res.status(400).send({error : "User with this email id already exists"})
+            return res.status(400).send({error : "User with this email id already exists", code : 11000})
         }
         res.status(500).send({ error: 'Server Error' });
     }
@@ -83,12 +83,5 @@ UserRouter.delete('/delete/:user_id', async (req,res) => {
         res.status(500).send({ error: 'Server Error' });
     }
 });
-
-
-
-
-
-
-
 
 module.exports = {UserRouter}
