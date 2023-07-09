@@ -7,6 +7,7 @@ const {connect} = require('./config/database');
 const {UserRouter} = require('./Routes/User.routes');
 
 app.use(cors());
+app.use(express.json());
 app.use('/users', UserRouter);
 
 app.listen(PORT, async () => {
