@@ -35,6 +35,7 @@ UserRouter.get('/get/:user_id', async (req,res) => {
 UserRouter.post('/post', async (req,res) => {
     try {
         const newUser = req.body;
+        console.log('ffgfgfg',newUser);
         const user = new USER_MODEL(newUser);
         await user.save();
         res.status(201).send({message : "New user added successfully", user: newUser});
